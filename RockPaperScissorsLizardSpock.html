@@ -1,0 +1,171 @@
+//Kyle Musselman
+//1 hour 30 minutes
+//100%
+<DOCTYPE html>
+<html>
+
+	<head>
+		<title>Rock Paper Scissors Lizard Spock</title>
+	</head>
+	
+	<body>
+		<script>
+			var userChoice = prompt("Do you choose rock, paper, scissors, lizard or spock?");
+			var computerChoice = Math.random();
+			
+			//ensure user enters a valid choice
+			while (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors" && userChoice != "lizard" && userChoice != "spock")
+			{
+				userChoice = prompt("I'm sorry. You didn't choose rock, paper, scissors, lizard or spock. Please choose one of them.");
+			}
+			
+			//determine computer choice
+			if (computerChoice <= 0.2)
+			{
+				computerChoice = "rock";
+			} 
+			else if (computerChoice <= 0.4)
+			{
+				computerChoice = "paper";
+			} 
+			else if (computerChoice <= 0.6)
+			{
+				computerChoice = "scissors";
+			} 
+			else if (computerChoice <= 0.8)
+			{
+				computerChoice = "lizard";
+			} 
+			else if (computerChoice > 0.8)
+			{
+				computerChoice = "spock";
+			} 
+			
+			console.log("Computer: " + computerChoice);
+			
+			//compares userChoice to computerChoice
+			//@param choice1: first choice
+			//@param choice2: second choice
+			//returns: string of winning choice
+			var compare = function( choice1, choice2) {
+				while (choice1 === choice2)
+				{
+					document.write("The result is a tie!"); 
+					
+					var computerChoice = Math.random();
+					
+					if (computerChoice <= 0.2)
+					{
+						choice2 = "rock";
+					} 
+					else if (computerChoice <= 0.4)
+					{
+						choice2 = "paper";
+					} 
+					else if (computerChoice <= 0.6)
+					{
+						choice2 = "scissors";
+					} 
+					else if (computerChoice <= 0.8)
+					{
+						choice2 = "lizard";
+					} 
+					else if (computerChoice > 0.8)
+					{
+						choice2 = "spock";
+					} 
+					
+					console.log("Computer: " + computerChoice);
+					
+					var choice1 = prompt("Do you choose rock, paper, scissors, lizard or spock?");
+					while (choice1 != "rock" && choice1 != "paper" && choice1 != "scissors" && choice1 != "lizard" && choice1 != "spock")
+					{
+						choice1 = prompt("I'm sorry. You didn't choose rock, paper, scissors, lizard or spock. Please choose one of them.");
+					}
+					
+				}
+				if (choice1 == "rock")
+				{
+					if (choice2 =="scissors" || choice2=="lizard")
+					{
+						return "Rock Wins";   
+					}
+					if (choice2 === "spock")
+					{
+						return "Spock Wins";   
+					}
+					if (choice2 === "paper")
+					{
+						return "Paper Wins";   
+					}
+				}
+				else if (choice1 === "paper")
+				{
+					if (choice2 =="spock" || choice2==="rock")
+					{
+						return "Paper Wins";   
+					}
+					if (choice2 === "lizard")
+					{
+						return "Lizard Wins";   
+					}
+					if (choice2 === "scissors")
+					{
+						return "Scissors Wins";   
+					}
+				}
+				else if (choice1 === "scissors")
+				{
+					if (choice2 =="paper" || choice2==="lizard")
+					{
+						return "Scissors Wins";   
+					}
+					if (choice2 === "rock")
+					{
+						return "Rock Wins";   
+					}
+					if (choice2 === "spock")
+					{
+						return "Spock Wins";   
+					}
+				}
+				else if (choice1 === "lizard")
+				{
+					if (choice2 =="spock" || choice2==="paper")
+					{
+						return "Lizard Wins";   
+					}
+					if (choice2 === "scissors")
+					{
+						return "Scissors Wins";   
+					}
+					if (choice2 === "rock")
+					{
+						return "Rock Wins";   
+					}
+				}
+				else if (choice1 === "spock")
+				{
+					if (choice2 =="scissors" || choice2==="rock")
+					{
+						return "Spock Wins";   
+					}
+					if (choice2 === "lizard")
+					{
+						return "Lizard Wins";   
+					}
+					if (choice2 === "paper")
+					{
+						return "Paper Wins";   
+					}
+				}
+				else {
+					document.write("Something has gone Horribly Wrong!")
+				}
+			}
+			
+			document.write(compare(userChoice, computerChoice)); 
+		</script>
+	</body>
+	
+</html>
